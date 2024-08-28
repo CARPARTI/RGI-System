@@ -3,12 +3,13 @@ class Application:
     def __init__(self):
         self.__user = None
         self.latest_notice_amm = 0.0
+        self.eligible()  # Automatically run the eligibility check upon initialization
 
 
     def eligible(self):
         print("Is the individual currently entitled to Rent-Geared-to-Income (RGI) and having their eligibility reviewed?  \n Yes or No")
         answer = input()
-        if(answer == "Yes" or "yes" or "y" or "Y"):
+        if answer.lower() in ["yes", "y"]:
             print("Application is relevant")
             self.print_type_of_household()
 
@@ -131,7 +132,6 @@ class Application:
 
 
 
-user = Application()
-user.eligible()
-#user.calculation_6_2(20000)
-#user.calculation_6_3()
+# To start the application:
+if __name__ == "__main__":
+    app = Application()
